@@ -86,8 +86,8 @@ unsigned char * ganja_digest(unsigned char * data, long datalen, unsigned char *
     for (i = 0; i < 8; i++) {
         D[c] = (H[i] & 0xFF000000) >> 24;
         D[c+1] = (H[i] & 0x00FF0000) >> 16;
-	D[c+2] = (H[i] & 0x0000FF00) >> 8;
-	D[c+3] = (H[i] & 0x000000FF);
+        D[c+2] = (H[i] & 0x0000FF00) >> 8;
+        D[c+3] = (H[i] & 0x000000FF);
 	c = (c + 4);
     }
 }
@@ -155,8 +155,8 @@ unsigned char * ganja_hmac(unsigned char * data, long datalen, unsigned char * D
     for (i = 0; i < 8; i++) {
         D[c] = (H[i] & 0xFF000000) >> 24;
         D[c+1] = (H[i] & 0x00FF0000) >> 16;
-	D[c+2] = (H[i] & 0x0000FF00) >> 8;
-	D[c+3] = (H[i] & 0x000000FF);
+        D[c+2] = (H[i] & 0x0000FF00) >> 8;
+        D[c+3] = (H[i] & 0x000000FF);
 	c = (c + 4);
     }
 }
@@ -228,8 +228,8 @@ unsigned char * ganja_kdf(unsigned char * password, int passlen, unsigned char *
     for (i = 0; i < (keylen / 4); i++) {
         D[c] = (H[i] & 0xFF000000) >> 24;
         D[c+1] = (H[i] & 0x00FF0000) >> 16;
-	D[c+2] = (H[i] & 0x0000FF00) >> 8;
-	D[c+3] = (H[i] & 0x000000FF);
+        D[c+2] = (H[i] & 0x0000FF00) >> 8;
+        D[c+3] = (H[i] & 0x000000FF);
 	c = (c + 4);
     }
 }
