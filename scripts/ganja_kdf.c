@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     unsigned char *buf;
     char digest[32*2+1];
     password = argv[1];
-    ganja_kdf(password, 4, D, iterations, keylen, salt);
+    ganja_kdf(password, strlen(password), D, iterations, keylen, salt);
     for (int x = 0; x < 32; x++) {
         sprintf(&digest[x*2], "%02x", D[x]);
     }
