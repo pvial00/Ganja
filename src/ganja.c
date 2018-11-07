@@ -218,24 +218,6 @@ unsigned char * ganja_hmac(unsigned char * data, long datalen, unsigned char * D
 }
 
 unsigned char * ganja_kdf(unsigned char * password, int passlen, unsigned char * D, int iterations, int keylen, unsigned char *salt) {
-<<<<<<< HEAD
-=======
-    int rounds = 10 * 8;
-    int j;
-    uint32_t H[8] = {0};
-    unsigned char temp[4];
-    uint32_t temp32[8];
-    uint32_t t, m;
-    uint32_t W[8];
-    W[0] = 0x72000000;
-    W[1] = 0xacdef012;
-    W[2] = 0x0059c491;
-    W[3] = 0xb8a79b02;
-    W[4] = 0x31ba94b9;
-    W[5] = 0x45000057;
-    W[6] = 0xb5f3810a;
-    W[7] = 0x8a348b7d;
->>>>>>> c25a137a9fc90d59251f8d39fa39dcccba2e1d3b
     int b, i, f, s, r;
     int c = 0;
     ganja_digest(password, strlen(password), D, salt);
