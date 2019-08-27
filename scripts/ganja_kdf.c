@@ -4,7 +4,7 @@ int main(int argc, char *argv[]) {
     int keylen = 32;
     int iterations = 10000;
     unsigned char *password;
-    unsigned char *salt = "RedDyeCipher";
+    unsigned char *salt = "DarkCastleSui";
     unsigned char D[32] = {0};
     unsigned char *buf;
     char digest[32*2+1];
