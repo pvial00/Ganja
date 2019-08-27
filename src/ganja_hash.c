@@ -2,11 +2,15 @@
 
 int main(int argc, char *argv[]) {
     unsigned char *password;
-    unsigned char *salt = "RedDyeCipher";
+    unsigned char *salt = "DarkCastleSui";
     unsigned char D[32] = {0};
     unsigned char *buf;
     char digest[32*2+1];
     FILE *infile;
+    if (argc != 2) {
+        printf("ganjasum <input file>\n");
+        exit(1);
+    }
     infile = fopen(argv[1], "rb");
     fseek(infile, 0, SEEK_END);
     long fsize = ftell(infile);
