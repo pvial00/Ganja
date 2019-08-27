@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     }
     infile = fopen(argv[1], "rb");
     fseek(infile, 0, SEEK_END);
-    long fsize = ftell(infile);
+    long long fsize = ftell(infile);
     fseek(infile, 0, SEEK_SET);
     buf = (unsigned char *)malloc(fsize);
     fread(buf, 1, fsize, infile);
