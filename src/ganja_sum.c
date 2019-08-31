@@ -1,4 +1,5 @@
 #include "ganja.c"
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
     unsigned char *password;
@@ -9,6 +10,10 @@ int main(int argc, char *argv[]) {
     FILE *infile;
     if (argc != 2) {
         printf("ganjasum <input file>\n");
+        exit(1);
+    }
+    if (access(argv[1], F_OK) == -1 ) {
+        printf("%s not found\n", argv[1]);
         exit(1);
     }
     infile = fopen(argv[1], "rb");
