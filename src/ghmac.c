@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 uint32_t conv8to32(unsigned char buf[]) {
     int i;
     uint32_t output;
@@ -14,7 +14,7 @@ uint32_t conv8to32(unsigned char buf[]) {
 uint32_t rotl(uint32_t v, int c) {
     return ((v << c) | (v >> (32 - c)));
 }
-
+*/
 void * ganja_hmac(unsigned char *data, long long datalen, unsigned char * D, unsigned char * key, int keylen, unsigned char * salt) {
     int rounds = 8 * 8;
     uint32_t H[8] = {0};
@@ -38,9 +38,9 @@ void * ganja_hmac(unsigned char *data, long long datalen, unsigned char * D, uns
     s = 0;
     m = 0x00000001;
     for (i = 0; i < (keylen / 4); i++) {
-        W[i] ^= (key[s] << 24) + (key[s+1] << 16) + (key[s+2] << 8) + key[s+3];
-        H[i] ^= (key[s] << 24) + (key[s+1] << 16) + (key[s+2] << 8) + key[s+3];
-        W[i] = (W[i] + m + H[i]) & 0xFFFFFFFF;
+        W[i & 0x07] ^= (key[s] << 24) + (key[s+1] << 16) + (key[s+2] << 8) + key[s+3];
+        H[i & 0x07] ^= (key[s] << 24) + (key[s+1] << 16) + (key[s+2] << 8) + key[s+3];
+        W[i & 0x07] = (W[i & 0x07] + m + H[i & 0x07]) & 0xFFFFFFFF;
         s += 4;
     }
         
